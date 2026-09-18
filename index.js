@@ -2,10 +2,10 @@
   "use strict";
 
   /* ---- menu mobile ---- */
-  var btnMenu = document.getElementById("btn-menu");
-  var menuMobile = document.getElementById("menu-mobile");
+  let btnMenu = document.getElementById("btn-menu");
+  let menuMobile = document.getElementById("menu-mobile");
   btnMenu.addEventListener("click", function () {
-    var aberto = menuMobile.classList.toggle("hidden") === false;
+    let aberto = menuMobile.classList.toggle("hidden") === false;
     btnMenu.setAttribute("aria-expanded", String(aberto));
   });
   menuMobile.addEventListener("click", function (e) {
@@ -16,15 +16,15 @@
   });
 
   /* ---- dropdown Tópicos ---- */
-  var btnTopicos = document.getElementById("btn-topicos");
-  var menuTopicos = document.getElementById("menu-topicos");
+  let btnTopicos = document.getElementById("btn-topicos");
+  let menuTopicos = document.getElementById("menu-topicos");
   function fecharTopicos() {
     menuTopicos.classList.add("hidden");
     btnTopicos.setAttribute("aria-expanded", "false");
   }
   btnTopicos.addEventListener("click", function (e) {
     e.stopPropagation();
-    var aberto = menuTopicos.classList.toggle("hidden") === false;
+    let aberto = menuTopicos.classList.toggle("hidden") === false;
     btnTopicos.setAttribute("aria-expanded", String(aberto));
   });
   document.addEventListener("click", fecharTopicos);
@@ -37,9 +37,9 @@
   });
 
   /* ---- carrossel ---- */
-  var carrossel = document.getElementById("carrossel");
+  let carrossel = document.getElementById("carrossel");
   function passo() {
-    var slide = carrossel.querySelector(".slide");
+    let slide = carrossel.querySelector(".slide");
     return slide ? slide.getBoundingClientRect().width + 20 : 320;
   }
   document.getElementById("prox").addEventListener("click", function () {
@@ -54,12 +54,12 @@
   });
 
   /* ---- revelar ao entrar na tela ---- */
-  var animar = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var alvos = document.querySelectorAll(".revela");
+  let animar = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let alvos = document.querySelectorAll(".revela");
   if (!animar || !("IntersectionObserver" in window)) {
     alvos.forEach(function (el) { el.classList.add("visivel"); });
   } else {
-    var obs = new IntersectionObserver(function (entradas) {
+    let obs = new IntersectionObserver(function (entradas) {
       entradas.forEach(function (ent) {
         if (ent.isIntersecting) { ent.target.classList.add("visivel"); obs.unobserve(ent.target); }
       });
@@ -68,21 +68,21 @@
   }
 
   /* ---- contadores ---- */
-  var contadores = document.querySelectorAll("[data-contador]");
+  let contadores = document.querySelectorAll("[data-contador]");
   function contar(el) {
-    var alvo = parseInt(el.dataset.contador, 10);
+    let alvo = parseInt(el.dataset.contador, 10);
     if (!animar) { el.textContent = alvo; return; }
-    var inicio = null, dur = 1200;
+    let inicio = null, dur = 1200;
     function passoAnim(t) {
       if (!inicio) inicio = t;
-      var p = Math.min((t - inicio) / dur, 1);
+      let p = Math.min((t - inicio) / dur, 1);
       el.textContent = Math.round(alvo * (1 - Math.pow(1 - p, 3)));
       if (p < 1) requestAnimationFrame(passoAnim);
     }
     requestAnimationFrame(passoAnim);
   }
   if ("IntersectionObserver" in window) {
-    var obsNum = new IntersectionObserver(function (entradas) {
+    let obsNum = new IntersectionObserver(function (entradas) {
       entradas.forEach(function (ent) {
         if (ent.isIntersecting) { contar(ent.target); obsNum.unobserve(ent.target); }
       });

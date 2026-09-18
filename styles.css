@@ -1,39 +1,110 @@
-  /* Força a paleta da marca: a página é clara por identidade, não por tema do sistema. */
-  :root { color-scheme: light; }
-  html { scroll-behavior: smooth; }
-  body { background: #ffffff; color: #101010; font-family: "Poppins","Segoe UI",system-ui,sans-serif; }
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+:root {
+  color-scheme: light;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: #ffffff;
+  color: #101010;
+  font-family: "Poppins", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
-
-  /* Eyebrow: tracinho + label, igual ao mockup */
-  .eyebrow { display:flex; align-items:center; gap:.75rem; font-size:.7rem; letter-spacing:.22em;
-             text-transform:uppercase; font-weight:600; color:#101010; }
-  .eyebrow::before { content:""; display:block; height:2px; width:2rem; background:#FFCB05; flex:none; }
-  .eyebrow--claro { color:#F2F2F2; }
-
-  /* Esconde a barra de rolagem do carrossel sem impedir o scroll */
-  .sem-barra { scrollbar-width: none; -ms-overflow-style: none; }
-  .sem-barra::-webkit-scrollbar { display: none; }
-
-  /* Mensagem do carrossel: hover no desktop, sempre visível onde não existe hover (toque) */
-  .msg { opacity: 0; transform: translateY(12px); transition: opacity .45s ease, transform .45s ease; }
-  .slide:hover .msg, .slide:focus-within .msg { opacity: 1; transform: translateY(0); }
-  .slide:hover .veu, .slide:focus-within .veu { opacity: 1; }
-  .veu { opacity: 0; transition: opacity .45s ease; }
-  @media (hover: none) {
-    .msg { opacity: 1; transform: none; }
-    .veu { opacity: 1; }
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
+}
 
-  /* Revelação na entrada — um gesto só, discreto */
-  .revela { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
-  .revela.visivel { opacity: 1; transform: none; }
-  @media (prefers-reduced-motion: reduce) { .revela { opacity:1; transform:none; } }
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #101010;
+}
+.eyebrow::before {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 2rem;
+  background: #ffcb05;
+  flex: none;
+}
+.eyebrow--claro {
+  color: #f2f2f2;
+}
 
-  :focus-visible { outline: 3px solid #101010; outline-offset: 3px; border-radius: 4px; }
-  .sobre-escuro :focus-visible { outline-color: #FFCB05; }
+.sem-barra {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.sem-barra::-webkit-scrollbar {
+  display: none;
+}
+
+.msg {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease;
+}
+.slide:hover .msg,
+.slide:focus-within .msg {
+  opacity: 1;
+  transform: translateY(0);
+}
+.slide:hover .veu,
+.slide:focus-within .veu {
+  opacity: 1;
+}
+.veu {
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+@media (hover: none) {
+  .msg {
+    opacity: 1;
+    transform: none;
+  }
+  .veu {
+    opacity: 1;
+  }
+}
+
+.revela {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+.revela.visivel {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .revela {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+:focus-visible {
+  outline: 3px solid #101010;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.sobre-escuro :focus-visible {
+  outline-color: #ffcb05;
+}
 
 .glow-fundo {
   position: relative;
@@ -45,14 +116,26 @@
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(60% 140% at 15% 20%, rgba(255,255,255,.10), transparent 60%),
-    radial-gradient(45% 120% at 55% 100%, rgba(255,255,255,.06), transparent 65%),
-    radial-gradient(35% 100% at 90% 10%, rgba(255,203,5,.07), transparent 60%);
+    radial-gradient(
+      60% 140% at 15% 20%,
+      rgba(255, 255, 255, 0.1),
+      transparent 60%
+    ),
+    radial-gradient(
+      45% 120% at 55% 100%,
+      rgba(255, 255, 255, 0.06),
+      transparent 65%
+    ),
+    radial-gradient(
+      35% 100% at 90% 10%,
+      rgba(255, 203, 5, 0.07),
+      transparent 60%
+    );
 }
 
 .foto-sombra {
   box-shadow:
-    0 1px 2px rgba(0,0,0,.06),
-    0 6px 12px -4px rgba(0,0,0,.14),
-    0 14px 28px -10px rgba(0,0,0,.18);
+    0 1px 2px rgba(0, 0, 0, 0.06),
+    0 6px 12px -4px rgba(0, 0, 0, 0.14),
+    0 14px 28px -10px rgba(0, 0, 0, 0.18);
 }
