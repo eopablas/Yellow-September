@@ -1,0 +1,838 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fique Bem — Setembro Amarelo</title>
+    <meta
+      name="description"
+      content="Campanha de conscientização sobre prevenção do suicídio e cuidado com a saúde mental."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" type="image/png" href="images/yellowhearticon.ico">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.0.0"></script>
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <style type="text/tailwindcss">
+      @theme {
+        --color-amarelo: #ffcb05;
+        --color-amarelo-escuro: #e0ae00;
+        --color-preto: #101010;
+        --color-cinza: #5a5a5a;
+        --font-display: "Poppins", "Segoe UI", system-ui, sans-serif;
+        --radius-card: 1.25rem;
+      }
+    </style>
+  </head>
+
+  <body class="antialiased">
+    <a
+      href="#conteudo"
+      class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:m-3 focus:rounded-lg focus:bg-preto focus:px-4 focus:py-2 focus:text-white"
+      >Pular para o conteúdo</a
+    >
+
+    <!-- ======================= NAV ======================= -->
+    <header class="absolute inset-x-0 top-0 z-40">
+      <nav
+        class="mx-auto flex max-w-[1600px] items-center justify-between px-8 py-5 text-white sobre-escuro"
+        aria-label="Principal"
+      >
+        <a href="#topo" class="flex items-center gap-2 text-sm font-semibold">
+          <svg
+            viewBox="0 0 24 24"
+            class="h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            aria-hidden="true"
+          >
+            <path
+              d="M12 20s-7-4.6-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6C19 15.4 12 20 12 20Z"
+              stroke-linejoin="round"
+            />
+          </svg>
+          Fique Bem
+        </a>
+
+        <button
+          id="btn-menu"
+          class="md:hidden rounded-lg p-2"
+          aria-expanded="false"
+          aria-controls="menu-mobile"
+          aria-label="Abrir menu"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            class="h-6 w-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round" />
+          </svg>
+        </button>
+
+        <ul class="hidden md:flex items-center gap-8 text-sm">
+          <li>
+            <a href="#topo" class="border-b-2 border-amarelo pb-1">Home</a>
+          </li>
+          <li>
+            <a
+              href="#campanha"
+              class="border-b-2 border-transparent pb-1 hover:border-white/50"
+              >Setembro Amarelo</a
+            >
+          </li>
+          <li class="relative">
+            <button
+              id="btn-topicos"
+              class="flex items-center gap-1 border-b-2 border-transparent pb-1 hover:border-white/50"
+              aria-expanded="false"
+              aria-controls="menu-topicos"
+            >
+              Tópicos
+              <svg
+                viewBox="0 0 24 24"
+                class="h-3.5 w-3.5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                aria-hidden="true"
+              >
+                <path
+                  d="m6 9 6 6 6-6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <ul
+              id="menu-topicos"
+              class="pointer-events-none invisible absolute right-0 top-full mt-3 flex w-40 origin-top-right translate-y-1 flex-col items-end gap-3 text-sm text-white opacity-0 transition duration-200 ease-out"
+            >
+              <li>
+                <a href="#burnout" class="transition hover:text-amarelo"
+                  >Burnout</a
+                >
+              </li>
+              <li>
+                <a href="#sinais" class="transition hover:text-amarelo"
+                  >Sinais de alerta</a
+                >
+              </li>
+              <li>
+                <a href="#ansiedade" class="transition hover:text-amarelo"
+                  >Ansiedade</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a
+              href="#ajuda"
+              class="border-b-2 border-transparent pb-1 hover:border-white/50"
+              >Buscar ajuda</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <ul
+        id="menu-mobile"
+        class="hidden md:hidden mx-6 mb-4 space-y-1 rounded-xl bg-white/95 p-3 text-preto shadow-xl backdrop-blur"
+      >
+        <li>
+          <a
+            href="#campanha"
+            class="block rounded-lg px-3 py-2 hover:bg-amarelo/20"
+            >Setembro Amarelo</a
+          >
+        </li>
+        <li>
+          <a
+            href="#burnout"
+            class="block rounded-lg px-3 py-2 hover:bg-amarelo/20"
+            >Burnout</a
+          >
+        </li>
+        <li>
+          <a
+            href="#sinais"
+            class="block rounded-lg px-3 py-2 hover:bg-amarelo/20"
+            >Sinais de alerta</a
+          >
+        </li>
+        <li>
+          <a
+            href="#ansiedade"
+            class="block rounded-lg px-3 py-2 hover:bg-amarelo/20"
+            >Ansiedade</a
+          >
+        </li>
+        <li>
+          <a
+            href="#ajuda"
+            class="block rounded-lg px-3 py-2 font-semibold hover:bg-amarelo/20"
+            >Buscar ajuda</a
+          >
+        </li>
+      </ul>
+    </header>
+
+    <main id="conteudo">
+      <!-- ======================= HERO ======================= -->
+      <section
+        id="topo"
+        class="relative isolate min-h-screen overflow-hidden sobre-escuro"
+      >
+        <img
+          src="images/Landing Page.png"
+          class="absolute inset-0 h-full w-full object-cover"
+          alt="Girassóis abertos ao entardecer"
+        />
+
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent"
+        ></div>
+
+        <div
+          class="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-6 pt-28 pb-16 text-white"
+        >
+          <p class="eyebrow eyebrow--claro">Setembro Amarelo</p>
+          <h1
+            class="mt-6 max-w-2xl text-[clamp(2.75rem,8vw,5rem)] font-extrabold leading-[1.02] tracking-tight"
+          >
+            Falar também é <span class="text-amarelo">um ato de amor.</span>
+          </h1>
+          <p class="mt-6 max-w-md text-[15px] leading-relaxed text-white/90">
+            O Setembro Amarelo é uma campanha de conscientização sobre a
+            prevenção do suicídio. É um convite para falar, ouvir e acolher.
+          </p>
+          <div class="mt-9 flex flex-wrap gap-3">
+            <a
+              href="#campanha"
+              class="rounded-full bg-amarelo px-7 py-3 text-sm font-semibold text-preto transition hover:bg-amarelo-escuro"
+            >
+              Saiba mais
+            </a>
+            <a
+              href="#ajuda"
+              class="rounded-full border border-white/70 px-7 py-3 text-sm font-semibold transition hover:bg-white hover:text-preto"
+            >
+              Preciso de ajuda agora
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================= CAMPANHA ======================= -->
+      <section id="campanha" class="mx-auto max-w-7xl px-6 py-24">
+        <div class="grid gap-12 lg:grid-cols-[1.1fr_.8fr_1fr] lg:items-start">
+          <div class="revela">
+            <p class="eyebrow">O que é o Setembro Amarelo?</p>
+            <h2
+              class="mt-5 text-[clamp(2rem,4.5vw,3.25rem)] font-extrabold leading-[1.08] tracking-tight"
+            >
+              Mais conscientização,<br /><span class="text-amarelo-escuro"
+                >menos silêncio.</span
+              >
+            </h2>
+            <p class="mt-6 max-w-[46ch] text-[15px] leading-relaxed text-cinza">
+              O Setembro Amarelo é uma campanha nacional e internacional que
+              busca reduzir o estigma em torno da saúde mental e do suicídio,
+              promovendo informação, acolhimento e apoio.
+            </p>
+            <a
+              href="https://www.setembroamarelo.com/"
+              class="mt-8 inline-flex items-center gap-3 rounded-full border border-preto/25 px-6 py-3 text-sm font-semibold transition hover:border-preto hover:bg-preto hover:text-white"
+            >
+              Conheça a campanha
+              <svg
+                viewBox="0 0 24 24"
+                class="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 12h15m0 0-5-5m5 5-5 5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <div
+            class="revela foto-sombra overflow-hidden rounded-card lg:h-[26rem]"
+          >
+            <img
+              src="images/sunflower.jpg"
+              class="h-full w-full object-cover"
+              alt="Girassóis abertos ao entardecer"
+            />
+          </div>
+
+          <ul class="revela space-y-7">
+            <li class="flex gap-4">
+              <span
+                class="grid h-10 w-10 flex-none place-items-center rounded-full bg-amarelo"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-5 w-5"
+                  fill="none"
+                  stroke="#101010"
+                  stroke-width="1.8"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M20 13a3 3 0 0 1-3 3H8l-4 3V6a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3Z"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+              <div>
+                <h3 class="text-[15px] font-semibold">Fale</h3>
+                <p class="mt-1 max-w-[34ch] text-sm leading-relaxed text-cinza">
+                  Conversar pode salvar vidas. Não tenha medo de se aproximar.
+                </p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <span
+                class="grid h-10 w-10 flex-none place-items-center rounded-full bg-amarelo"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-5 w-5"
+                  fill="none"
+                  stroke="#101010"
+                  stroke-width="1.8"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 20s-7-4.6-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6C19 15.4 12 20 12 20Z"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+              <div>
+                <h3 class="text-[15px] font-semibold">Ouça</h3>
+                <p class="mt-1 max-w-[34ch] text-sm leading-relaxed text-cinza">
+                  Esteja presente. Às vezes, o que alguém precisa é apenas ser
+                  ouvido.
+                </p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <span
+                class="grid h-10 w-10 flex-none place-items-center rounded-full bg-amarelo"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-5 w-5"
+                  fill="none"
+                  stroke="#101010"
+                  stroke-width="1.8"
+                  aria-hidden="true"
+                >
+                  <circle cx="9" cy="8" r="3" />
+                  <circle cx="17" cy="9" r="2.4" />
+                  <path
+                    d="M3 19a6 6 0 0 1 12 0M15.5 19a5 5 0 0 1 5.5-4.6"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </span>
+              <div>
+                <h3 class="text-[15px] font-semibold">Acolha</h3>
+                <p class="mt-1 max-w-[34ch] text-sm leading-relaxed text-cinza">
+                  O apoio de quem se importa faz toda a diferença. Ajude o
+                  próximo.
+                </p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <span
+                class="grid h-10 w-10 flex-none place-items-center rounded-full bg-amarelo"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-5 w-5"
+                  fill="none"
+                  stroke="#101010"
+                  stroke-width="1.8"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M9 18h6m-5 3h4M12 3a6 6 0 0 1 4 10.5V15H8v-1.5A6 6 0 0 1 12 3Z"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+              <div>
+                <h3 class="text-[15px] font-semibold">Informe-se</h3>
+                <p class="mt-1 max-w-[34ch] text-sm leading-relaxed text-cinza">
+                  Conhecimento também é uma forma de cuidado. Cuide-se.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ======================= NÚMEROS ======================= -->
+      <section class="glow-fundo bg-preto py-16 text-white sobre-escuro">
+        <div
+          class="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-[1fr_2.2fr] md:items-center"
+        >
+          <div>
+            <p class="eyebrow eyebrow--claro">Os números são reais</p>
+            <h2 class="mt-4 text-2xl font-bold leading-tight">
+              A saúde mental <span class="text-amarelo">importa.</span>
+            </h2>
+          </div>
+          <dl class="grid gap-8 sm:grid-cols-3 sm:divide-x sm:divide-white/20">
+            <div class="sm:px-6 sm:first:pl-0">
+              <dt class="sr-only">Frequência</dt>
+              <dd>
+                <span
+                  class="block text-4xl font-extrabold text-amarelo"
+                  data-contador="1"
+                  >0</span
+                >
+                <p class="mt-2 text-sm leading-relaxed text-white/80">
+                  pessoa morre por suicídio a cada
+                  <strong class="font-semibold text-white">40 segundos</strong>
+                  no mundo.
+                </p>
+              </dd>
+            </div>
+            <div class="sm:px-6">
+              <dt class="sr-only">Total por ano</dt>
+              <dd>
+                <span class="text-sm text-white/80">Mais de</span>
+                <span class="block text-4xl font-extrabold text-amarelo"
+                  ><span data-contador="700">0</span> mil</span
+                >
+                <p class="mt-2 text-sm leading-relaxed text-white/80">
+                  pessoas tiram a própria vida todos os anos.
+                </p>
+              </dd>
+            </div>
+            <div class="sm:px-6">
+              <dt class="sr-only">Prevenção</dt>
+              <dd>
+                <span class="block text-4xl font-extrabold text-amarelo"
+                  ><span data-contador="90">0</span>%</span
+                >
+                <p class="mt-2 text-sm leading-relaxed text-white/80">
+                  dos casos de suicídio podem ser prevenidos com o apoio certo.
+                </p>
+              </dd>
+            </div>
+          </dl>
+        </div>
+        <p class="mx-auto mt-10 max-w-7xl px-6 text-xs text-white/50">
+          Fonte: Organização Mundial da Saúde.
+        </p>
+      </section>
+
+      <!-- ======================= BURNOUT + CARROSSEL ======================= -->
+      <section id="burnout" class="py-24">
+        <div class="mx-auto max-w-7xl px-6">
+          <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+            <div class="revela">
+              <p class="eyebrow">Burnout, o que é?</p>
+              <h2
+                class="mt-5 text-[clamp(2rem,4.5vw,3.25rem)] font-extrabold leading-[1.08] tracking-tight"
+              >
+                Quando a mente pede<br /><span class="text-amarelo-escuro"
+                  >uma pausa.</span
+                >
+              </h2>
+              <p
+                class="mt-6 max-w-[46ch] text-[15px] leading-relaxed text-cinza"
+              >
+                Nem todo cansaço é apenas cansaço. O burnout é o esgotamento
+                causado pelo estresse crônico do trabalho. Entender os sinais
+                também é uma forma de cuidado.
+              </p>
+            </div>
+
+            <div class="revela foto-sombra overflow-hidden rounded-card">
+              <img
+                src="images/alonegirl.jpeg"
+                class="h-full w-full object-cover"
+                alt="Pessoa olhando pela janela com expressão cansada"
+              />
+            </div>
+          </div>
+
+          <!-- CARROSSEL -->
+          <div class="mt-20 revela">
+            <div class="flex flex-wrap items-end justify-between gap-6">
+              <div>
+                <p class="eyebrow">Fique atento aos sinais</p>
+                <h3
+                  class="mt-4 text-[clamp(1.6rem,3.4vw,2.5rem)] font-extrabold leading-tight"
+                >
+                  Alguns sinais
+                  <span class="text-amarelo-escuro">merecem atenção.</span>
+                </h3>
+              </div>
+              <p class="max-w-[42ch] text-sm leading-relaxed text-cinza">
+                Passe o mouse sobre cada imagem para entender o sinal. No
+                celular, deslize para o lado.
+              </p>
+            </div>
+
+            <div class="relative mt-10">
+              <ul
+                id="carrossel"
+                class="sem-barra flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-4"
+                tabindex="0"
+                aria-label="Sinais de esgotamento"
+              >
+                <!-- slide 1 -->
+                <li
+                  class="slide group foto-sombra relative aspect-4/3 w-[84vw] flex-none snap-center overflow-hidden rounded-card sm:w-[46vw] lg:w-[calc((100%-40px)/3)]"
+                >
+                  <img
+                    src="images/burnout3.png"
+                    alt="Exaustão mental e física representada por uma pessoa com a cabeça apoiada nas mãos"
+                    class="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <div
+                    class="veu absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-transparent"
+                  ></div>
+                  <div class="msg absolute inset-x-0 bottom-0 p-6 sm:p-7">
+                    <span
+                      class="inline-block rounded-full bg-amarelo px-3 py-1 text-[11px] font-bold text-preto"
+                      >Exaustão</span
+                    >
+                    <h4 class="mt-3 text-lg font-bold text-white sm:text-xl">
+                      O descanso não repõe mais
+                    </h4>
+                    <p
+                      class="mt-2 max-w-[38ch] text-[13px] leading-relaxed text-white/85"
+                    >
+                      Acordar já cansado, semana após semana, é diferente de uma
+                      noite mal dormida.
+                    </p>
+                  </div>
+                </li>
+
+                <!-- slide 2 -->
+                <li
+                  class="slide group foto-sombra relative aspect-4/3 w-[84vw] flex-none snap-center overflow-hidden rounded-card sm:w-[46vw] lg:w-[31%]"
+                >
+                  <img
+                    src="images/burnout2.png"
+                    alt="Pessoa irritada com expressão de raiva"
+                    class="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <div
+                    class="veu absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-transparent"
+                  ></div>
+                  <div class="msg absolute inset-x-0 bottom-0 p-6 sm:p-7">
+                    <span
+                      class="inline-block rounded-full bg-amarelo px-3 py-1 text-[11px] font-bold text-preto"
+                      >Irritabilidade</span
+                    >
+                    <h4 class="mt-3 text-lg font-bold text-white sm:text-xl">
+                      A paciência acaba antes do dia
+                    </h4>
+                    <p
+                      class="mt-2 max-w-[38ch] text-[13px] leading-relaxed text-white/85"
+                    >
+                      Coisas pequenas passam a pesar muito, e o incômodo sobra
+                      para quem está perto.
+                    </p>
+                  </div>
+                </li>
+
+                <!-- slide 3 -->
+                <li
+                  class="slide group foto-sombra relative aspect-4/3 w-[84vw] flex-none snap-center overflow-hidden rounded-card sm:w-[46vw] lg:w-[31%]"
+                >
+                  <img
+                    src="images/burnout.png"
+                    alt="Pessoa sentada no chão com expressão de desânimo"
+                    class="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <div
+                    class="veu absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-transparent"
+                  ></div>
+                  <div class="msg absolute inset-x-0 bottom-0 p-6 sm:p-7">
+                    <span
+                      class="inline-block rounded-full bg-amarelo px-3 py-1 text-[11px] font-bold text-preto"
+                      >Afastamento</span
+                    >
+                    <h4 class="mt-3 text-lg font-bold text-white sm:text-xl">
+                      O que dava prazer virou esforço
+                    </h4>
+                    <p
+                      class="mt-2 max-w-[38ch] text-[13px] leading-relaxed text-white/85"
+                    >
+                      Convites recusados, mensagens sem resposta, hobbies
+                      parados há meses.
+                    </p>
+                  </div>
+                </li>
+
+                <!-- slide 4 -->
+                <li
+                  class="slide group foto-sombra relative aspect-4/3 w-[84vw] flex-none snap-center overflow-hidden rounded-card sm:w-[46vw] lg:w-[31%]"
+                >
+                  <img
+                    src="images/sono.png"
+                    alt="Pessoa deitada em uma cama com expressão de cansaço"
+                    class="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <div
+                    class="veu absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-transparent"
+                  ></div>
+                  <div class="msg absolute inset-x-0 bottom-0 p-6 sm:p-7">
+                    <span
+                      class="inline-block rounded-full bg-amarelo px-3 py-1 text-[11px] font-bold text-preto"
+                      >Sono</span
+                    >
+                    <h4 class="mt-3 text-lg font-bold text-white sm:text-xl">
+                      A cabeça não desliga à noite
+                    </h4>
+                    <p
+                      class="mt-2 max-w-[38ch] text-[13px] leading-relaxed text-white/85"
+                    >
+                      Dormir pouco, acordar várias vezes ou dormir demais e
+                      continuar sem energia.
+                    </p>
+                  </div>
+                </li>
+              </ul>
+
+              <div class="mt-4 flex items-center justify-between">
+                <p class="text-xs text-cinza">
+                  Estes sinais não são um diagnóstico. Só um profissional pode
+                  fazer isso.
+                </p>
+                <div class="flex gap-2">
+                  <button
+                    id="ant"
+                    class="grid h-11 w-11 place-items-center rounded-full border border-preto/20 transition hover:bg-preto hover:text-white"
+                    aria-label="Sinal anterior"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      class="h-5 w-5"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M15 6l-6 6 6 6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    id="prox"
+                    class="grid h-11 w-11 place-items-center rounded-full border border-preto/20 transition hover:bg-preto hover:text-white"
+                    aria-label="Próximo sinal"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      class="h-5 w-5"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M9 6l6 6-6 6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================= ANSIEDADE ======================= -->
+      <section id="ansiedade" class="bg-[#FAF8F3] py-24">
+        <div class="mx-auto max-w-7xl px-6">
+          <div class="revela max-w-3xl">
+            <p class="eyebrow">Entendendo a ansiedade</p>
+            <h2
+              class="mt-5 text-[clamp(2rem,5vw,3.5rem)] font-extrabold leading-[1.06] tracking-tight"
+            >
+              Nem tudo que você sente precisa ser enfrentado
+              <span class="text-amarelo-escuro">sozinho.</span>
+            </h2>
+            <p class="mt-6 max-w-[52ch] text-[15px] leading-relaxed text-cinza">
+              A ansiedade pode envolver apreensão, medo e sintomas físicos como
+              falta de ar e aperto no peito. Entender como ela se manifesta é um
+              passo para reconhecer quando buscar ajuda.
+            </p>
+          </div>
+
+          <div class="mt-16 grid gap-12 lg:grid-cols-2 lg:items-center">
+            <div class="revela overflow-hidden rounded-card shadow-xl">
+              <img
+                src="images/hands.png"
+                class="h-full w-full object-cover"
+                alt="Mãos entrelaçadas com expressão de ansiedade"
+              />
+            </div>
+
+            <div class="revela">
+              <h3
+                class="text-[clamp(1.5rem,3vw,2.25rem)] font-extrabold leading-tight"
+              >
+                Você não precisa entender tudo de uma vez.
+              </h3>
+              <p
+                class="mt-5 max-w-[46ch] text-[15px] leading-relaxed text-cinza"
+              >
+                Às vezes, reconhecer o que está sentindo já é o primeiro passo
+                para se cuidar.
+              </p>
+              <ol class="mt-10 space-y-4">
+                <li
+                  class="flex items-center gap-4 border-t border-preto/10 pt-4"
+                >
+                  <span class="text-sm font-bold text-amarelo-escuro">01</span>
+                  <span class="font-semibold">Escutar</span>
+                  <span class="text-sm text-cinza"
+                    >o que o corpo e a cabeça estão dizendo.</span
+                  >
+                </li>
+                <li
+                  class="flex items-center gap-4 border-t border-preto/10 pt-4"
+                >
+                  <span class="text-sm font-bold text-amarelo-escuro">02</span>
+                  <span class="font-semibold">Compreender</span>
+                  <span class="text-sm text-cinza"
+                    >sem se julgar por isso.</span
+                  >
+                </li>
+                <li
+                  class="flex items-center gap-4 border-t border-preto/10 pt-4"
+                >
+                  <span class="text-sm font-bold text-amarelo-escuro">03</span>
+                  <span class="font-semibold">Cuidar</span>
+                  <span class="text-sm text-cinza"
+                    >com apoio de quem entende do assunto.</span
+                  >
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================= AJUDA ======================= -->
+      <section id="ajuda" class="bg-preto py-20 text-white sobre-escuro">
+        <div class="mx-auto max-w-7xl px-6">
+          <div class="grid gap-10 lg:grid-cols-[1fr_1.3fr] lg:items-center">
+            <div>
+              <p class="eyebrow eyebrow--claro">Buscar ajuda</p>
+              <h2
+                class="mt-5 text-[clamp(1.75rem,4vw,2.75rem)] font-extrabold leading-tight"
+              >
+                Se você precisa conversar,
+                <span class="text-amarelo">é agora.</span>
+              </h2>
+              <p
+                class="mt-5 max-w-[42ch] text-[15px] leading-relaxed text-white/80"
+              >
+                O atendimento é gratuito, sigiloso e funciona 24 horas por dia,
+                todos os dias do ano.
+              </p>
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-2">
+              <a
+                href="tel:188"
+                class="rounded-card bg-amarelo p-7 text-preto transition hover:bg-amarelo-escuro"
+              >
+                <span class="block text-5xl font-extrabold leading-none"
+                  >188</span
+                >
+                <span class="mt-3 block font-semibold"
+                  >CVV — Centro de Valorização da Vida</span
+                >
+                <span class="mt-1 block text-sm text-preto/70"
+                  >Ligação gratuita, 24h. Também por chat em cvv.org.br.</span
+                >
+              </a>
+              <div class="rounded-card border border-white/20 p-7">
+                <span
+                  class="block text-5xl font-extrabold leading-none text-amarelo"
+                  >192</span
+                >
+                <span class="mt-3 block font-semibold">SAMU</span>
+                <span class="mt-1 block text-sm text-white/70"
+                  >Para emergências com risco imediato à vida.</span
+                >
+                <hr class="my-5 border-white/15" />
+                <span class="block font-semibold">CAPS</span>
+                <span class="mt-1 block text-sm text-white/70">
+                  Atendimento em saúde mental pelo SUS. Procure a unidade do seu
+                  município ou uma UBS.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-[#0A0A0A] py-10 text-white/55 sobre-escuro">
+      <div
+        class="mx-auto flex max-w-7xl flex-col gap-4 px-6 text-sm sm:flex-row sm:items-center sm:justify-between"
+      >
+        <p class="flex items-center gap-2 font-semibold text-white">
+          <svg
+            viewBox="0 0 24 24"
+            class="h-4 w-4 text-amarelo"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            aria-hidden="true"
+          >
+            <path
+              d="M12 20s-7-4.6-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6C19 15.4 12 20 12 20Z"
+              stroke-linejoin="round"
+            />
+          </svg>
+          Fique Bem
+        </p>
+        <p class="max-w-[52ch] text-xs leading-relaxed">
+          Conteúdo informativo, sem finalidade de diagnóstico ou tratamento. Em
+          caso de risco, ligue 188 ou 192.
+        </p>
+      </div>
+    </footer>
+    <script src="index.js"></script>
+  </body>
+</html>
