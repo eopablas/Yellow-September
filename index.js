@@ -1,6 +1,56 @@
 (function () {
   "use strict";
 
+    /* ---- scroll suave personalizado ---- */
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      const id = this.getAttribute("href");
+
+      if (!id || id === "#") return;
+
+      const destino = document.querySelector(id);
+
+      if (!destino) return;
+
+      e.preventDefault();
+
+      const inicio = window.scrollY;
+      const fim = destino.getBoundingClientRect().top + window.scrollY;
+      const distancia = fim - inicio;
+
+      // Duração do scroll em milissegundos
+      // Aumente esse valor para deixar mais lento
+      const duracao = 1500;
+
+      // Respeita a preferência de reduzir animações
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        window.scrollTo(0, fim);
+        return;
+      }
+
+      const inicioTempo = performance.now();
+
+      function animarScroll(tempoAtual) {
+        const progresso = Math.min((tempoAtual - inicioTempo) / duracao, 1);
+
+        // Movimento suave:
+        // começa devagar → acelera → desacelera no final
+        const suavizado =
+          progresso < 0.5
+            ? 2 * progresso * progresso
+            : 1 - Math.pow(-2 * progresso + 2, 2) / 2;
+
+        window.scrollTo(0, inicio + distancia * suavizado);
+
+        if (progresso < 1) {
+          requestAnimationFrame(animarScroll);
+        }
+      }
+
+      requestAnimationFrame(animarScroll);
+    });
+  });
+
   /* ---- menu mobile ---- */
   let btnMenu = document.getElementById("btn-menu");
   let menuMobile = document.getElementById("menu-mobile");
